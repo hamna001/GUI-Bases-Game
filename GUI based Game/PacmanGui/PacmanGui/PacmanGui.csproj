@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42E286F3-CEBB-4D04-BD7D-78405084E19D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PacmanGui</RootNamespace>
+    <AssemblyName>PacmanGui</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EZInput, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EZInput.1.3.2\lib\netstandard2.0\EZInput.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collision.cs" />
+    <Compile Include="endGameform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="endGameform.Designer.cs">
+      <DependentUpon>endGameform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game.cs" />
+    <Compile Include="GameCell.cs" />
+    <Compile Include="GameDirection.cs" />
+    <Compile Include="GameGrid.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="GameObjectType.cs" />
+    <Compile Include="Ghost.cs" />
+    <Compile Include="HorizontalGhost.cs" />
+    <Compile Include="PacmanPlayer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomGhost.cs" />
+    <Compile Include="Shooting.cs" />
+    <Compile Include="SmartGhost.cs" />
+    <Compile Include="TitlePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TitlePage.Designer.cs">
+      <DependentUpon>TitlePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VerticalGhost.cs" />
+    <Compile Include="WonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WonForm.Designer.cs">
+      <DependentUpon>WonForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="endGameform.resx">
+      <DependentUpon>endGameform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TitlePage.resx">
+      <DependentUpon>TitlePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WonForm.resx">
+      <DependentUpon>WonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_fright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pacman_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simplebox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\game-over-poster-design-template-f174e42fa3ca42485b8b49e986ac46f4_screen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3077018681_CFMKLQGx_pre_0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\st_small_845x845-pad_1000x1000_f8f8f8-removebg-preview-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download__1_-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images__1_-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HD-wallpaper-silver-plain-sheet-silver.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fireboy-and-Watergirl-Map-Screenshot-2-1024x576.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FBWGL1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fireboy-and-watergirl-1-forest-temple.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cartoon-funny-seamless-wide-fantasy-landscape.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19b919b394e6637fb5decaa848a20d1c.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\066_forest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red-fire-logo-hi-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellow-circle-md-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download__3_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download__4_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\st_small_845x845-pad_1000x1000_f8f8f8-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxresdefault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33-331523_cartoon-wedding-artwork-clipart-image-clipart-key-illustration-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33-331523_cartoon-wedding-artwork-clipart-image-clipart-key-illustration-removebg-preview %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download__5_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forest-temple-2-slider.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxresdefault %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxresdefault %281%291.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hqdefault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FBWGL2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sddefault.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pipt0h5i603bu-4084668779.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pipt0h5i603bu-40846687791.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sddefault1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sddefault2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FBWGL1 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxresdefault %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\st_small_507x507-pad_600x600_f8f8f8-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\75-759218_water-drop-cartoon-png-water-droplet-clip-art-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-cartoon-vector-illustration-isolated-on-white-background-ghost-icon-2GGBAXA-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fireboy-and-watergirl-1-forest-templeblock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gengar-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\180-1806316_pokemon-gastly-ghost-freetoedit-gastly-pokemon-transparent-gif-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\slide11-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-gastly-drawing-fan-art-pokemon-haunter-pokemon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-transparent-gastly-drawing-fan-art-pokemon-haunter-pokemon-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images__2_-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ghost-haunter-fan-art-artist-gengar-nightmare-gastly-alola-png-clipart-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_279259336-stock-video-digital-animation-of-a-you.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
